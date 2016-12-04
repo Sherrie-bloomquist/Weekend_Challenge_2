@@ -35,7 +35,8 @@ $('student_buttons').click(function(){
 
 //display tauStudents to DOM
 var showStudents = function (results){
-  outputText = '';
+  console.log(showStudents);
+  var outputText = '';
   for (var i = 0; i < tauStudents.length; i++) {
     outputText =  '<p>' + 'Name:' + tauStudents[i].first_name + '' + tauStudents[i].last_name + '</p>';
     outputText = '<p>' + 'Info:' + tauStudents[i].info + '</p>';
@@ -43,6 +44,7 @@ var showStudents = function (results){
 
   }
 $( '#studentProfile' ).html(outputText);
+
 
 }; //end showStudents function
 
