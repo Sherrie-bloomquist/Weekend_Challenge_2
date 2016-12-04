@@ -1,3 +1,53 @@
+body{
+  background-color: #FFFFFF;
+}
 h1{
   text-align: center;
+  padding-top: 50px;
+  font-size: 45px;
+  font-family: cursive;;
+}
+
+.panel-heading{
+    background-color: #B4DF1E;
+}
+
+.student_buttons{
+  text-align: center;
+  margin-bottom: 45px;
+  margin-top: 45px;
+}
+
+.btn{
+  font-family: fantasy;;
+}
+
+#studentProfile{
+  align-content: stretch;
+}
+
+.studentData{
+  text-align: center;
+  padding-top: 30px;
+  font-family: fantasy;
+  font-size: 20px;
+  margin-bottom: 10px;
+
+}
+
+#displayInline{
+  margin-left: 15em;
+  align-content: space-between;
+  display: inline-flex;
+  font-family: fantasy;
+
+}
+#studentNumber{
+width: 400px;
+margin: 20px auto 0;
+border-radius: 8px;
+text-align: center;
+font-size: 18px;
+padding-top: 15px;
+font-family: fantasy;
 }

@@ -1,6 +1,6 @@
 Weekend Challenge 02
 =============================
-
+<p class='student_buttons'>
 To-Do List:
 ===================================
 [x] create readme/html/css/jscript files,  
