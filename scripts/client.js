@@ -1,10 +1,10 @@
 // Global variables
 // ==================
 var tauStudents = [];
-var i = 0;
 var outputText = '';
 var searchUrl = 'http://devjana.net/support/tau_students.json';
 var timeInterval = 10000;
+var student = 0;
 
 $(document).ready(function(){
 
@@ -15,43 +15,52 @@ $(document).ready(function(){
     success: function( data ){
     console.log('successfully hit tau_students:' , data);
     console.log('data.tau:', data.tau);
-    for (var i = 0; i < data.tau.length; i++) {
-    tauStudents.push(data.tau[i]);
-    showStudents(tauStudents);
-      } //end for loop
-    }
+    tauStudents = data.tau;
+    showStudent(tauStudents[0]);
+    }//end success function
   }); //end ajax call
 }; //end studentData function
 studentData();
 
   //display tauStudents to DOM
-  var showStudents = function (results){
-    console.log(showStudents);
-    for (var i = 0; i < tauStudents.length; i++) {
-      outputText =  $('#studentName').html ('<p>' + '<strong>' + 'Name:' +'</strong>' + '  ' + tauStudents[i].first_name + ' ' + tauStudents[i].last_name + '</p>');
-      outputText = $('#studentInfo').html ('<p>' + '<strong>' + 'Info:' +'</strong>' + '  ' + tauStudents[i].info + '</p>');
-      outputText = $('#studentImg').html ('<img src="' + tauStudents[i].picUrl + '">');
-          }
+  var showStudent = function (student){
+    console.log(student);
+      outputText =  $('#studentName').html ('<p>' + '<strong>' + 'Name:' +'</strong>' + '  ' + student.first_name + ' ' + student.last_name + '</p>');
+      outputText = $('#studentInfo').html ('<p>' + '<strong>' + 'Info:' +'</strong>' + '  ' + student.info + '</p>');
+      outputText = $('#studentImg').html ('<img src="' + student.picUrl + '">');
+      studentNumber();
 
-      outputText = $('#studentNumber').html('<p>' + 'The student displayed is:' + ' ' + (i) + ' ' + 'out of 15' + '</p>');
+    }; //end showStudents function
 
-  }; //end showStudents function
+    //display the number of which student is being shown
+    var studentNumber = function(){
+      $('#studentNumber').html('<p>' + '( The student displayed is:' + ' ' + (student + 1) + ' ' + 'out of 15 )' + '</p>');
+    };//end studentNumber function
 
+ $('#nextProfile').click(function(){
+   console.log('in next button function', student);
+   if(student === 14){
+    student = 0;
+  }else{
+     student +=  1;
+  }
+  showStudent(tauStudents[student]);
+});//end nextStudent function
 
- $("#nextProfile").on('click', function(){
+$('#previousProfile').click(function(){
+  console.log('in previous button function', student);
+  if(student === 0){
+   student = 14;
+ }else{
+    student -=  1;
+ }
+ showStudent(tauStudents[student]);
+}); //end previousProfile button click
 
+ $('student_buttons').click(function(){
+   
 
- }); //end nextProfile button click
-//
-// $("#previousProfile").click(function(){
-//
-//
-// }); //end previousProfile button click
-//
-// $('student_buttons').click(function(){
-//
-//
-// }); //end student_buttons button click
+}); //end student_buttons button click
 
 
 

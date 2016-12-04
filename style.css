@@ -14,8 +14,6 @@ h1{
 
 .student_buttons{
   text-align: center;
-  margin-bottom: 45px;
-  margin-top: 45px;
 }
 
 .btn{
@@ -28,11 +26,8 @@ h1{
 
 .studentData{
   text-align: center;
-  padding-top: 30px;
   font-family: fantasy;
-  font-size: 20px;
-  margin-bottom: 10px;
-
+  font-size: 25px;
 }
 
 #displayInline{
@@ -40,6 +35,7 @@ h1{
   align-content: space-between;
   display: inline-flex;
   font-family: fantasy;
+  padding-bottom: 50px;
 
 }
 #studentNumber{
@@ -47,7 +43,6 @@ width: 400px;
 margin: 20px auto 0;
 border-radius: 8px;
 text-align: center;
-font-size: 18px;
-padding-top: 15px;
+font-size: 19px;
 font-family: fantasy;
 }

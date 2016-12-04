@@ -10,17 +10,17 @@ To-Do List:
 [x] call ajax and link in JSON,  
 [x] Push student info to tauStudents array,  
 [] Display each student and their info on the DOM,  
-[] create a counter to show which student is being displayed (ex. 2/15),  
+[x] create a counter to show which student is being displayed (ex. 2/15),  
 [x] create 'prev' 'next', and individual student buttons,  
-[] display first student on page load,  
-[] display counter of which student is being displayed,  
-[] connect 'nextProfile' button to loop forward through students and when you get to [14] continue to [0],  
-[] connect 'previousProfile' button to loop backwards through students and when you get  to [0] continue to [14],  
-[] connect individual student buttons to display their profile,  
+[x] display first student on page load,    
+[x] connect 'nextProfile' button to loop forward through students and when you get to [14] continue to [0],  
+[x] connect 'previousProfile' button to loop backwards through students and when you get  to [0] continue to [14],  
+
 
 Stretch Goals:
 ==================================
-[] make pretty with bootstrap  
+[x] make pretty with bootstrap  
+[] connect individual student buttons to display their profile  
 [] fade in/out animation  
 [] timerInterval variable flips profile every 10 seconds if a button isn't clicked  
 
