@@ -20,6 +20,10 @@ h1{
   font-family: fantasy;;
 }
 
+#buttons {
+  text-align: center;
+}
+
 #studentProfile{
   align-content: stretch;
 }

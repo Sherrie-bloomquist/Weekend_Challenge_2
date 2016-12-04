@@ -3,7 +3,7 @@
 var tauStudents = [];
 var outputText = '';
 var searchUrl = 'http://devjana.net/support/tau_students.json';
-var timeInterval = 10000;
+var timeInterval = 10;
 var student = 0;
 
 $(document).ready(function(){
@@ -17,20 +17,27 @@ $(document).ready(function(){
     console.log('data.tau:', data.tau);
     tauStudents = data.tau;
     showStudent(tauStudents[0]);
+    everyoneGetsAButton();
     }//end success function
   }); //end ajax call
 }; //end studentData function
 studentData();
 
+// make dynamic buttons for each student
+var everyoneGetsAButton = function(){
+  for (var i = 0; i < tauStudents.length; i++) {
+    $('#buttons').append("<button onClick='showStudent(" + i + ")' class='btn btn-info'>" + tauStudents[i].first_name + " " + "</button>");
+  }
+}; //end everyoneGetsAButton function
+
   //display tauStudents to DOM
-  var showStudent = function (student){
-    console.log(student);
+  var showStudent = function(student){
       outputText =  $('#studentName').html ('<p>' + '<strong>' + 'Name:' +'</strong>' + '  ' + student.first_name + ' ' + student.last_name + '</p>');
       outputText = $('#studentInfo').html ('<p>' + '<strong>' + 'Info:' +'</strong>' + '  ' + student.info + '</p>');
       outputText = $('#studentImg').html ('<img src="' + student.picUrl + '">');
       studentNumber();
 
-    }; //end showStudents function
+    }; //end showStudent function
 
     //display the number of which student is being shown
     var studentNumber = function(){
@@ -38,7 +45,6 @@ studentData();
     };//end studentNumber function
 
  $('#nextProfile').click(function(){
-   console.log('in next button function', student);
    if(student === 14){
     student = 0;
   }else{
@@ -48,7 +54,6 @@ studentData();
 });//end nextStudent function
 
 $('#previousProfile').click(function(){
-  console.log('in previous button function', student);
   if(student === 0){
    student = 14;
  }else{
@@ -57,15 +62,11 @@ $('#previousProfile').click(function(){
  showStudent(tauStudents[student]);
 }); //end previousProfile button click
 
- $('student_buttons').click(function(){
-   
-
-}); //end student_buttons button click
-
-
-
-
-
+// function iClickYou() {
+//   var index = $(this).data().index;
+//   student = index;
+//   displayStudentInfo(tauStudents[currentIndex]);
+// }
 
 
 }); //end doc ready function
