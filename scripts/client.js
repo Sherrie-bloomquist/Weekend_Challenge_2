@@ -26,23 +26,34 @@ studentData();
 // make dynamic buttons for each student
 var everyoneGetsAButton = function(){
   for (var i = 0; i < tauStudents.length; i++) {
-    $('#buttons').append("<button onClick='showStudent(" + i + ")' class='btn btn-info'>" + tauStudents[i].first_name + " " + "</button>");
+    $('#buttons').append("<button data-num= "+i+" class='btn btn-info'>" + tauStudents[i].first_name + " " + "</button>");
   }
 }; //end everyoneGetsAButton function
 
+
+
+$(document).on('click', '.btn-info', function(){
+  console.log('btn clicked');
+  var studentNum = $(this).data('num');
+  console.log('student number:' , studentNum);
+  showStudent(tauStudents[studentNum]);
+
+});//end
+
   //display tauStudents to DOM
-  var showStudent = function(student){
+  function showStudent(student){
       outputText =  $('#studentName').html ('<p>' + '<strong>' + 'Name:' +'</strong>' + '  ' + student.first_name + ' ' + student.last_name + '</p>');
       outputText = $('#studentInfo').html ('<p>' + '<strong>' + 'Info:' +'</strong>' + '  ' + student.info + '</p>');
       outputText = $('#studentImg').html ('<img src="' + student.picUrl + '">');
       studentNumber();
 
-    }; //end showStudent function
+    } //end showStudent function
 
     //display the number of which student is being shown
-    var studentNumber = function(){
+    function studentNumber(){
       $('#studentNumber').html('<p>' + '( The student displayed is:' + ' ' + (student + 1) + ' ' + 'out of 15 )' + '</p>');
-    };//end studentNumber function
+    }//end studentNumber function
+
 
  $('#nextProfile').click(function(){
    if(student === 14){
@@ -56,17 +67,24 @@ var everyoneGetsAButton = function(){
 $('#previousProfile').click(function(){
   if(student === 0){
    student = 14;
- }else{
+ }else {
     student -=  1;
- }
+  }
  showStudent(tauStudents[student]);
 }); //end previousProfile button click
 
-// function iClickYou() {
-//   var index = $(this).data().index;
-//   student = index;
-//   displayStudentInfo(tauStudents[currentIndex]);
-// }
 
+
+//time interval function
+
+// function ticToc(timeInterval) {
+//
+//   console.log(timeInterval);
+//   if (timeInterval === 0){
+//     timeInterval = 10;
+//     timesUp();
+//   }
+// timeInterval --;
+// }//end time interval function
 
 }); //end doc ready function

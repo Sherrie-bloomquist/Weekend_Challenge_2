@@ -20,7 +20,7 @@ To-Do List:
 Stretch Goals:
 ==================================
 [x] make pretty with bootstrap  
-[] connect individual student buttons to display their profile  
+[x] connect individual student buttons to display their profile  
 [] fade in/out animation  
 [] timerInterval variable flips profile every 10 seconds if a button isn't clicked  
 
